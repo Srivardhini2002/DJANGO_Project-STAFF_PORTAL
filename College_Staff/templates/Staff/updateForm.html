@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Update Form</title>
+        <style>
+        #form
+             {
+              display:block;
+              border-radius: 5px;
+              height:auto;
+              background-color: rgb(210,210,210);
+              margin:20px  100px;
+              padding: 20px;
+              box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+             }
+             input[type], select,textarea,text
+             {
+              width: 100%;
+              padding: 15px 20px;
+              margin: 8px 0;
+              display: inline-block;
+              border: 1px solid #ccc;
+              border-radius: 10px;
+              box-sizing: border-box;
+             }
+             input[type=submit]
+             {
+               width: 50%;
+               text-align:center;
+               background:green;
+               color: white;
+               padding: 14px 20px;
+               margin: 8px 250px;
+               border: none;
+               border-radius: 4px;
+               cursor: pointer;
+              }
+              </style>
+    </head>
+    <body>
+        <h1 style="text-align: center;">Enter the Details to Update </h1><br>
+        <div id="form">
+        <form method="POST">
+            Staff Name:<input type="text" name="staff_name" value="{{details.staff_name}}" readonly><br>
+            Staff Age:<input type="text" name="staff_age" value="{{details.staff_age}}" readonly><br>
+            Staff Contact:<input type="text" name="staff_contact" value="{{details.staff_contact}}"><br>
+            Staff E-mail:<input type="email" name="staff_email" value="{{details.staff_email}}"><br>
+            Staff Department:<select name="staff_department" value="{{details.staff_department}}" aria-readonly="true">
+                <option value="ComputerScience">CSE</option>
+                <option value="Electrical">ECE</option>
+                <option value="Mechanical">MECH</option>
+                <option value="BioTechnology">BIOTECH</option>
+              </select><br>
+            {% csrf_token %}
+            <input type="submit" value="UPDATE">
+            
+        </form>
+        </div>
+    </body>
+</html>

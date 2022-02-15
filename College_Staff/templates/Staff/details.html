@@ -1,0 +1,49 @@
+<html>
+    {% load static%}
+    <head>
+        <title>Staff Details</title>
+        <style>
+            table {
+              font-family: arial, sans-serif;
+              border-collapse: collapse;
+              width: 100%;
+            }
+            
+            td, th {
+              border: 1px solid #dddddd;
+              text-align: left;
+              padding: 8px;
+            }
+            
+            tr:nth-child(even) {
+              background-color: #dddddd;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 style="text-align: center;">Staff Details</h1><br><br>
+        <table>
+            <tr>
+                <th>Staff ID</th>
+                <th>Staff Name</th>
+                <th>Staff Age</th>
+                <th>Staff Contact</th>
+                <th>Staff E-mail</th>
+                <th>Staff Department</th>
+                <th colspan="2">Click the Button to DELETE or UPDATE</th>
+            </tr>
+            {% for stf in details %}
+            <tr>
+                <td>{{stf.id}}</td>
+                <td>{{stf.staff_name}}</td>
+                <td>{{stf.staff_age}}</td>
+                <td>{{stf.staff_contact}}</td>
+                <td>{{stf.staff_email}}</td>
+                <td>{{stf.staff_department}}</td>
+                <td><a href='/delete/{{stf.id}}' ><button type="button">DELETE</button></a></td>
+                <td><a href='/update/{{stf.id}}' ><button type="button">UPDATE</button></a></td>
+            </tr>
+            {% endfor %}
+        </table><br><br>
+    </body>
+</html>
